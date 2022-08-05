@@ -1,0 +1,6 @@
+{
+    "watch": ["src/**/*.ts"],
+    "ext": "ts",
+    "exec": "npx ts-node src/app.ts",
+    "colours": true
+}

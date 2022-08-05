@@ -1,0 +1,7 @@
+/node_modules
+.git
+.env
+.vscode
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
