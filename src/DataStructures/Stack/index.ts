@@ -42,24 +42,24 @@ class Stack<T> implements IStack<T> {
     }
 }
 
-const stack = new Stack<string>(4);
-
-stack.push("A");
-stack.push("B");
-stack.push("C");
-stack.push("D");
-
-console.log(stack.size());
-console.log(stack.peek());
-
-stack.pop();
-
-console.log(stack.size());
-console.log(stack.peek());
-
-console.log(stack);
-
 const stackConstructor: RequestHandler = (request, response) => {
     response.send("Check application console");
+
+    const stack = new Stack<string>(4);
+
+    stack.push("A");
+    stack.push("B");
+    stack.push("C");
+    stack.push("D");
+
+    console.log(stack.size());
+    console.log(stack.peek());
+
+    stack.pop();
+
+    console.log(stack.size());
+    console.log(stack.peek());
+
+    console.log(stack);
 };
 export default stackConstructor;

@@ -1,5 +1,7 @@
 import express, { Express, Request, Response } from "express";
-import stack from "./routes";
+import stack from "./DataStructures/Stack/route";
+import abstract from "./OOP/Abstract/route";
+import singleton from "./OOP/Singleton/route";
 
 const app: Express = express();
 
@@ -8,5 +10,12 @@ const app: Express = express();
  * @type typescript
  */
 app.use(stack);
+
+/**
+ * Singleton pattern
+ * @type typescript
+ */
+app.use(singleton);
+app.use(abstract);
 
 app.listen(3000);
