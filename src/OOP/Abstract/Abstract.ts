@@ -8,20 +8,22 @@ interface IProduct {
 
 abstract class Product {
     abstract addProduct(product: IProduct): IProduct;
-    getProducts?(): IProduct | undefined;
+    getProducts?(): [] | unknown;
 }
 
 class Shop extends Product {
-    private static _products: IProduct | undefined;
+    private static _products: IProduct[] = [];
 
     constructor() {
         super();
     }
     public addProduct(product: IProduct): IProduct {
-        Shop._products = product;
+        // Store objects
+        Shop._products.push(product);
+
         return product;
     }
-    public getProducts(): IProduct | undefined {
+    public getProducts(): [] | unknown {
         return Shop._products;
     }
 }
@@ -30,6 +32,7 @@ const abstractConstructor: RequestHandler = (request, response) => {
     response.send("Check application console");
 
     const shop = new Shop();
+
     shop.addProduct({
         id: "1",
         name: "First product",
@@ -40,6 +43,7 @@ const abstractConstructor: RequestHandler = (request, response) => {
         name: "Second product",
         price: 20,
     });
-    console.log(shop.getProducts());
+
+    console.log("Get stored products", shop.getProducts());
 };
 export default abstractConstructor;
