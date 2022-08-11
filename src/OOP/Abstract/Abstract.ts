@@ -12,19 +12,11 @@ abstract class Product {
 }
 
 class Shop extends Product {
-    private static _products: IProduct[] = [];
-
     constructor() {
         super();
     }
     public addProduct(product: IProduct): IProduct {
-        // Store objects
-        Shop._products.push(product);
-
         return product;
-    }
-    public getProducts(): [] | unknown {
-        return Shop._products;
     }
 }
 
@@ -44,6 +36,6 @@ const abstractConstructor: RequestHandler = (request, response) => {
         price: 20,
     });
 
-    console.log("Get stored products", shop.getProducts());
+    console.log(shop);
 };
 export default abstractConstructor;
